@@ -1,0 +1,23 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.206520482)
+
+newmtl Handle 1
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl handle 2
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl glass
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl frame
+kd 0.8 0.8 0.8
+illum 1
+
+newmtl metal small
+kd 0.8 0.8 0.8
+illum 1
+
