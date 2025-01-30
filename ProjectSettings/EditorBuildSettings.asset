@@ -5,9 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Activities/LA_3_IndikaWijesooriya/Menu.unity
+    guid: 1a1f23fac206e4f7bb73bbc9cdab16dd
+  - enabled: 1
+    path: Assets/Activities/LA_3_IndikaWijesooriya/ARTest.unity
+    guid: 32c38dbd1e1344740ad6a3144e161bef
+  - enabled: 1
+    path: Assets/Activities/LA_3_IndikaWijesooriya/ARFurniture.unity
+    guid: 87d02bca407da4c12b1884c048ad34e2
+  - enabled: 1
+    path: Assets/Activities/LA_3_IndikaWijesooriya/ARFace.unity
+    guid: 99674cee6d85d41b0a34841d24a87dea
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b3654e1fbe2424dd5a6fcedb9c0eabc9, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 335c0fa137a5f402482d9eb2d0d0b204, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 0c3ba8d043eb349678a7f6759f1650e0, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 758d095910c2743979c62e54cf718ca4, type: 2}
   m_UseUCBPForAssetBundles: 0
