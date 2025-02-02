@@ -11,12 +11,7 @@ public class Monster : MonoBehaviour
     private GameObject monster;
 
     public bool hasMonsterBeenSpawned = false;
-
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         GenerateMonster();
@@ -36,9 +31,7 @@ public class Monster : MonoBehaviour
             {
                 hasMonsterBeenSpawned = true;
                 Instantiate(monster, plane.transform.position, Quaternion.identity);
-            }
-
-            
+            } 
         }
     }
 

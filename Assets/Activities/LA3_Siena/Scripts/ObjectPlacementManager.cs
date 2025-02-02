@@ -12,11 +12,16 @@ public class ObjectPlacementManager : MonoBehaviour
     private ARRaycastManager raycastManager;
 
     [SerializeField]
+    private ARPlaneManager planeManager;
+
+    [SerializeField]
     private Transform rectile;
 
     private Vector2 midpoint;
     private List <ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
-    private bool placeObject = false;
+    
+    private bool allowToPlaceObject = false;
+    private bool hasObjectBeenPlaced = false;
 
     void Start()
     {
@@ -32,7 +37,7 @@ public class ObjectPlacementManager : MonoBehaviour
     {
         if(raycastManager.Raycast(midpoint, aRRaycastHits, TrackableType.PlaneWithinPolygon))
         {
-            placeObject = true;
+            allowToPlaceObject = true;
 
             if(rectile)
                 rectile.position = aRRaycastHits[0].pose.position;
@@ -40,20 +45,23 @@ public class ObjectPlacementManager : MonoBehaviour
             else
             {
                 rectile.position = Vector3.one * 10000;
-                placeObject = false;
-            }
-                
+                allowToPlaceObject = false;
+            }    
         }
+
+        if(hasObjectBeenPlaced == true)
+            allowToPlaceObject = false;
     }
 
     public void PlaceObject()
     {
-        if(!placeObject)
+        if(!allowToPlaceObject)
             return;
 
         if(!placementObject)
             return;
 
         Instantiate(placementObject, aRRaycastHits[0].pose.position, Quaternion.identity);
+        hasObjectBeenPlaced = true;
     }
 }
