@@ -14,9 +14,6 @@ public class DraggingObject : MonoBehaviour
 
     [SerializeField]
     private ARRaycastManager raycastManager;
-    
-    //[SerializeField]
-    //private float maxDistanceOnRaySelection = 25.0f;
 
     private List <ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
 
@@ -48,9 +45,7 @@ public class DraggingObject : MonoBehaviour
             }
 
             if(touch.phase == TouchPhase.Ended)
-            {
                 onTouchHold = false;
-            }
         }
 
         
