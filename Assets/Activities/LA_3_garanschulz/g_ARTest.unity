@@ -992,7 +992,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pMan: {fileID: 1590073609}
-  copymonP: {fileID: 5951962793612738250, guid: aedc14c2504581b4fa1985b7adf0cfcb, type: 3}
+  copymonP: {fileID: 5951962793612738250, guid: b58f1cd01aa7b47469820f69abdb490c, type: 3}
 --- !u!4 &2118175938
 Transform:
   m_ObjectHideFlags: 0
