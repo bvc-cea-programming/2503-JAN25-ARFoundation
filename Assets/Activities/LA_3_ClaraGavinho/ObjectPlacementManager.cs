@@ -12,6 +12,7 @@ public class ObjectPlacementManager : MonoBehaviour
     private Vector2 midPoint;
     private List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
     private bool _canPlaceObject = false;
+    private bool _objectPlaced = false;
 
     void Start()
     {
@@ -48,6 +49,10 @@ public class ObjectPlacementManager : MonoBehaviour
 
         if (!placementPrefab) return;
 
-        Instantiate(placementPrefab, arRaycastHits[0].pose.position, Quaternion.identity);
+        if (_objectPlaced == false)
+        {
+            Instantiate(placementPrefab, arRaycastHits[0].pose.position, Quaternion.identity);
+            _objectPlaced = true;
+        }
     }
 }

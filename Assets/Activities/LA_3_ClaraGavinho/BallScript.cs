@@ -12,7 +12,7 @@ public class BallScript : MonoBehaviour
 
     [SerializeField] private float throwForce = 15f;
     [SerializeField] private float throwForceZ = 7f;
-    [SerializeField] private float gravity = 0.5f;
+    //[SerializeField] private float gravity = 0.5f;
     
     private Rigidbody rb;
 
