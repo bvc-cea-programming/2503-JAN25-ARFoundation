@@ -21,8 +21,6 @@ public class SphereThrow : MonoBehaviour
     private float maxSphereSpeed;
 
     [Header ("User Values")]
-    //[SerializeField]
-    //private Camera mainCamera;
     [SerializeField]
     private float smoothing;
     [SerializeField]
@@ -58,6 +56,8 @@ public class SphereThrow : MonoBehaviour
 
     void Update()
     {
+        mousePos = Input.mousePosition;
+
         if(holdingSphere == true)
             PickUpSphere();
 

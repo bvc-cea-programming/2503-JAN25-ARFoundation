@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac06867084590b540b7105aefb28d51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggingObjectScript: {fileID: 1916028637}
   placementObject: {fileID: 8766109455624381242, guid: 71222bf054a550342901d0b7c1e0c980, type: 3}
   raycastManager: {fileID: 1916028636}
   planeManager: {fileID: 1916028635}

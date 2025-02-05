@@ -6,6 +6,9 @@ using UnityEngine.XR.ARSubsystems;
 public class ObjectPlacementManager : MonoBehaviour
 {
     [SerializeField]
+    private DraggingObject draggingObjectScript; //Reference to the DraggingObject script
+
+    [SerializeField]
     private GameObject placementObject;
 
     [SerializeField]
@@ -17,6 +20,7 @@ public class ObjectPlacementManager : MonoBehaviour
     [SerializeField]
     private Transform rectile;
 
+    private GameObject placementObjectClone; //A clone of "palcementObject"
     private Vector2 midpoint;
     private List <ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
     
@@ -61,7 +65,8 @@ public class ObjectPlacementManager : MonoBehaviour
         if(!placementObject)
             return;
 
-        Instantiate(placementObject, aRRaycastHits[0].pose.position, Quaternion.identity);
+        placementObjectClone = Instantiate(placementObject, aRRaycastHits[0].pose.position, Quaternion.identity);
+        draggingObjectScript.placedObject = placementObjectClone; //Influencing the "placedObject" variable in the DraggingObject script
         hasObjectBeenPlaced = true;
     }
 }

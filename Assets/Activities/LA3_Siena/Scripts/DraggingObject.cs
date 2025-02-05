@@ -6,50 +6,53 @@ using UnityEngine.XR.ARSubsystems;
 
 public class DraggingObject : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject placedObject;
-
-    [SerializeField]
-    private Camera mainCamera;
+    public GameObject placedObject; //Influenced by the "ObjectPlacementManager"
 
     [SerializeField]
     private ARRaycastManager raycastManager;
 
     private List <ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
-
-    private Vector2 touchPosition;
-    private Touch touch;
+    private Vector3 mousePos; //Mouse cursor position on the screen
+    private Vector2 touchPosition; //To find the coordinates of your touch on a screen
+    private Touch touch; //For a touch input on a mobile device
     private bool onTouchHold = false;
 
     void Update()
     {
+        //Debug.Log(onTouchHold);
+
+        mousePos = Input.mousePosition;
+
         //touch = Input.GetTouch(0);
 
-        if(Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-            touchPosition = touch.position;
+        //if(Input.touchCount > 0)
+        //{
+            //touch = Input.GetTouch(0);
+            //touchPosition = touch.position;
 
-            if(touch.phase == TouchPhase.Began)
+            //if(touch.phase == TouchPhase.Began)
+            if(Input.GetMouseButtonDown(0))
             {
-                Ray ray = mainCamera.ScreenPointToRay(touch.position);
+                onTouchHold = true;
+    
+                //Ray ray = Camera.main.ScreenPointToRay(touch.position);
+                Ray ray = Camera.main.ScreenPointToRay(mousePos);
                 RaycastHit hitObject; 
 
                 if(Physics.Raycast(ray, out hitObject))
                 {
                     if(hitObject.transform.name.Contains("PlacedObject"))
-                    {
                         onTouchHold = true;
-                    }
                 }
             }
 
-            if(touch.phase == TouchPhase.Ended)
+            //if(touch.phase == TouchPhase.Ended)
+            if(Input.GetMouseButtonUp(0))
                 onTouchHold = false;
-        }
+        //}
 
         
-        if(raycastManager.Raycast(touchPosition, aRRaycastHits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
+        if(raycastManager.Raycast(mousePos, aRRaycastHits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
         {
             Pose hitPose = aRRaycastHits[0].pose;
 
@@ -58,7 +61,7 @@ public class DraggingObject : MonoBehaviour
 
             //else
             //{
-                if(onTouchHold == true)
+                if(onTouchHold == true && placedObject != null)
                 {
                     placedObject.transform.position = hitPose.position;
                     placedObject.transform.rotation = hitPose.rotation;
