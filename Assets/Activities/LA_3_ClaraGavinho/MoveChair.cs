@@ -72,7 +72,6 @@ public class MoveChair : MonoBehaviour
             //chair.transform.Rotate(_mousePos.x, 0f, 0f);
         }
         
-        
     }
     
 }
