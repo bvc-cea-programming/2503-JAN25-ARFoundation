@@ -9,13 +9,19 @@ public class ObjectPlacementManager : MonoBehaviour
     [SerializeField] private ARRaycastManager raycastManager;
     [SerializeField] private Transform reticle;
 
+    public GameObject placementPrefabClone;
     private Vector2 midPoint;
     private List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
     private bool _canPlaceObject = false;
     private bool _objectPlaced = false;
 
+    private Touch touch;
+    
+    private float speed;
+
     void Start()
     {
+        speed = 0.01f;
         midPoint = new Vector2(Screen.width / 2, Screen.height / 2);
     }
     // Update is called once per frame
@@ -51,7 +57,7 @@ public class ObjectPlacementManager : MonoBehaviour
 
         if (_objectPlaced == false)
         {
-            Instantiate(placementPrefab, arRaycastHits[0].pose.position, Quaternion.identity);
+            placementPrefabClone = Instantiate(placementPrefab, arRaycastHits[0].pose.position, Quaternion.identity);
             _objectPlaced = true;
         }
     }

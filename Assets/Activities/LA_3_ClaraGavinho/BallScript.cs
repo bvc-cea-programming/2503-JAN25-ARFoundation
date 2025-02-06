@@ -30,21 +30,24 @@ public class BallScript : MonoBehaviour
     {
         if (ballThrown) return;
         
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            startTime = Time.time;
-            
-            startPos = Input.GetTouch(0).position;
-        }
+            Touch touch = Input.GetTouch(0);
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            endTime = Time.time;
+            if (touch.phase == TouchPhase.Began)
+            {
+                startTime = Time.time;
+                startPos = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                endTime = Time.time;
 
-            timeDiff = endTime - startTime;
-            endPos = Input.GetTouch(0).position;;
+                timeDiff = endTime - startTime;
+                endPos = touch.position;
 
-            ThrowBall();
+                ThrowBall();
+            }
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -65,11 +68,15 @@ public class BallScript : MonoBehaviour
 
         if (direction.y > 50)
         {
-            rb.isKinematic = false;
-            rb.isKinematic = true;
+            rb.useGravity = true;
             ballThrown = true;
-            
-            rb.AddForce(direction.x * throwForce, direction.y * throwForce, throwForceZ / timeDiff);
+
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0;
+
+            Vector3 launchDirection = cameraForward.normalized + Vector3.up * 0.5f;
+            rb.AddForce(launchDirection * throwForce, ForceMode.Impulse);
+            //rb.AddForce(direction.x * throwForce, direction.y * throwForce, throwForceZ / timeDiff);
             
             Destroy(gameObject, 5f);
         }

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 107572931}
   - component: {fileID: 107572930}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,6 +423,7 @@ MonoBehaviour:
   placementPrefab: {fileID: 8766109455624381242, guid: 71222bf054a550342901d0b7c1e0c980, type: 3}
   raycastManager: {fileID: 1362125564}
   reticle: {fileID: 1260658847}
+  placementPrefabClone: {fileID: 0}
 --- !u!4 &729859084
 Transform:
   m_ObjectHideFlags: 0
@@ -1125,6 +1126,7 @@ GameObject:
   - component: {fileID: 1828068774}
   - component: {fileID: 1828068780}
   - component: {fileID: 1828068779}
+  - component: {fileID: 1828068781}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1401,6 +1403,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1828068781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828068772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f1d3c1670da90458c0f122e1235851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastManager: {fileID: 1362125564}
+  _placementScript: {fileID: 729859083}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
