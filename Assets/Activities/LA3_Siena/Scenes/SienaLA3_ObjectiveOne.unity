@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1024392420}
   - component: {fileID: 1024392419}
   - component: {fileID: 1024392423}
-  - component: {fileID: 1024392422}
+  - component: {fileID: 1024392424}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -262,7 +262,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -321,27 +321,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024392417}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1024392422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024392417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c08e823d16cac42a227d932405fef0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  raycastManager: {fileID: 1232553437}
-  throwableSphere: {fileID: 1024392417}
-  distanceOfSphereFromCamera: 5
-  sphereVelocity: 0
-  sphereSpeed: 0
-  maxSphereSpeed: 100
-  smoothing: 0
-  minimumThrowDistance: 10
-  rayCastLength: 100
 --- !u!54 &1024392423
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -369,6 +348,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1024392424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024392417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f7a9ce10f501d4583f42f624202a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchForce: 2
+  upwardForce: 0.5
+  minimumThrowDistance: 30
 --- !u!1 &1125723131
 GameObject:
   m_ObjectHideFlags: 0
